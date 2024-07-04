@@ -8,7 +8,7 @@ paths:
       tags:
         - Test
       responses:
-        "200":
+        "201":
           description: Success
   /partner-api/test/another-method:
     get:
