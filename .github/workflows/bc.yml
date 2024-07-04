@@ -24,7 +24,7 @@ jobs:
     - run: echo PREV_COMMIT=${{ env.PREV_COMMIT }}
 
     - name: Get prev file
-      run: echo "PREV_FILE=$(https://raw.githubusercontent.com/reuvenharrison/oas/${{ env.PREV_COMMIT }}/simple.yaml)" >> $GITHUB_ENV
+      run: echo "PREV_FILE=$(echo https://raw.githubusercontent.com/reuvenharrison/oas/${{ env.PREV_COMMIT }}/simple.yaml)" >> $GITHUB_ENV
 
     - run: echo PREV_FILE=${{ env.PREV_FILE }}
 
