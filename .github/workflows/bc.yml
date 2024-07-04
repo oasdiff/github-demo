@@ -20,9 +20,6 @@ jobs:
       with:
         fetch-depth: 2 # fetch two commits so we can get the prev commit
 
-    - name: Test
-      run: echo "::warning file=simple.yaml,line=2,col=5,endColumn=7::Missing semicolon"
-
     - name: Get prev commit
       run: echo "PREV_COMMIT=$(git --no-pager log --skip=1 --max-count=1 | grep commit | cut -d' ' -f2)" >> $GITHUB_ENV
       
