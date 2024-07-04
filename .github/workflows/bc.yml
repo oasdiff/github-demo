@@ -1,0 +1,23 @@
+name: go
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: true
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: oasdiff
+      run: docker run --rm -t tufin/oasdiff changelog https://raw.githubusercontent.com/reuvenharrison/oas/main/simple.yaml simple.yaml -f githubactions
+
