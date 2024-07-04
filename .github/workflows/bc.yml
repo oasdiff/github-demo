@@ -27,5 +27,5 @@ jobs:
       run: echo "PREV_FILE=$(echo https://raw.githubusercontent.com/reuvenharrison/oas/${{ env.PREV_COMMIT }}/simple.yaml)" >> $GITHUB_ENV
 
     - name: Run diff
-      run: docker run --rm -t -v $(pwd)/:/data:ro -w /data tufin/oasdiff changelog ${{ env.PREV_FILE }} simple.yaml -f githubactions
+      run: docker run --rm -t -v $(pwd)/:/data:ro -w /data tufin/oasdiff changelog ${{ env.PREV_FILE }} ./simple.yaml -f githubactions
 
