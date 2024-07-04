@@ -20,9 +20,13 @@ jobs:
 
     - name: Get prev commit
       run: echo "PREV_COMMIT=$(git --no-pager log -n1 | grep commit | cut -d' ' -f2)" >> $GITHUB_ENV
+      
+    - run: echo PREV_COMMIT=${{ env.PREV_COMMIT }}
 
     - name: Get prev file
       run: echo "PREV_FILE=$(https://raw.githubusercontent.com/reuvenharrison/oas/${{ env.PREV_COMMIT }}/simple.yaml)" >> $GITHUB_ENV
+
+    - run: echo PREV_FILE=${{ env.PREV_FILE }}
 
     - name: Run diff
       run: docker run --rm -t -v $(pwd)/:/data:ro tufin/oasdiff changelog ${{ env.PREV_FILE }} /data/simple.yaml -f githubactions
