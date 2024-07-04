@@ -16,8 +16,8 @@ jobs:
         shell: bash
     steps:
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: oasdiff
+    - name: Run diff
       run: docker run --rm -t -v $(pwd)/:/data:ro tufin/oasdiff changelog https://raw.githubusercontent.com/reuvenharrison/oas/main/simple.yaml /data/simple.yaml -f githubactions
 
