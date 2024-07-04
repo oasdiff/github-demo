@@ -22,5 +22,5 @@ jobs:
       run: echo "PREV_COMMIT=$(git --no-pager log -n1 | grep commit | cut -d' ' -f2)" >> $GITHUB_ENV
 
     - name: Run diff
-      run: docker run --rm -t -v $(pwd)/:/data:ro tufin/oasdiff changelog https://raw.githubusercontent.com/reuvenharrison/oas/$PREV_COMMIT/simple.yaml /data/simple.yaml -f githubactions
+      run: docker run --rm -t -v $(pwd)/:/data:ro tufin/oasdiff changelog https://raw.githubusercontent.com/reuvenharrison/oas/&{{ $PREV_COMMIT }}/simple.yaml /data/simple.yaml -f githubactions
 
