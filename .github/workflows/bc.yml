@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Get prev commit
-      run: echo "PREV_COMMIT=$(git --no-pager log -n1 | grep commit | cut -d' ' -f2)" >> $GITHUB_ENV
+      run: echo "PREV_COMMIT=$(git --no-pager log -n2 | grep commit | tail -n1 | cut -d' ' -f2)" >> $GITHUB_ENV
       
     - run: echo PREV_COMMIT=${{ env.PREV_COMMIT }}
 
