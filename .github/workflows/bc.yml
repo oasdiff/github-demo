@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  build-and-test:
+  oasdiff:
     strategy:
       fail-fast: true
     runs-on: ubuntu-latest
@@ -19,5 +19,5 @@ jobs:
       uses: actions/checkout@v3
 
     - name: oasdiff
-      run: docker run --rm -t tufin/oasdiff changelog https://raw.githubusercontent.com/reuvenharrison/oas/main/simple.yaml simple.yaml -f githubactions
+      run: docker run --rm -t tufin/oasdiff changelog https://raw.githubusercontent.com/reuvenharrison/oas/main/simple.yaml ./simple.yaml -f githubactions
 
