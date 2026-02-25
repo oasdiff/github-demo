@@ -9,7 +9,7 @@ components:
     groupId:
       in: path
       name: groupId
-      required: true
+      required: false
       schema:
         type: string
   schemas:
@@ -22,12 +22,12 @@ components:
             created:
               type: string
               format: date-time
-              readOnly: false
+              readOnly: true
               pattern: "^[a-z]+$"
             id:
               type: string
               readOnly: true
-            name:
+            name1:
               type: string
           required:
             - name
