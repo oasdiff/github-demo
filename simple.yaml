@@ -7,7 +7,7 @@ servers:
 components:
   parameters:
     groupId:
-      in: path
+      in: query
       name: groupId
       required: false
       schema:
@@ -27,7 +27,7 @@ components:
             id:
               type: string
               readOnly: true
-            name1:
+            name:
               type: string
           required:
             - name
@@ -51,7 +51,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroupView'
           description: SUCCESS
-        "401":
+        "400":
           content:
             application/json:
               schema:
