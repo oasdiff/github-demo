@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
   title: Tufin
-  version: "2.0"
+  version: "3.0"
 servers:
-- url: https://localhost:9080
+- url: https://localhost:8080
 components:
   parameters:
     groupId:
@@ -43,18 +43,18 @@ paths:
             schema:
               $ref: '#/components/schemas/GroupView'
         description: Creates one project.
-        required: false
+        required: true
       responses:
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GroupView'
-          description: OK
+          description: SUCCESS
         "401":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GroupView'
           description: Conflict
-      summary: Create One Project
+      summary: Create a Project
