@@ -22,7 +22,7 @@ components:
             created:
               type: string
               format: date-time
-              readOnly: true
+              readOnly: false
               pattern: "^[a-z]+$"
             id:
               type: string
@@ -43,7 +43,7 @@ paths:
             schema:
               $ref: '#/components/schemas/GroupView'
         description: Creates one project.
-        required: true
+        required: false
       responses:
         "200":
           content:
@@ -51,7 +51,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroupView'
           description: OK
-        "409":
+        "401":
           content:
             application/json:
               schema:
