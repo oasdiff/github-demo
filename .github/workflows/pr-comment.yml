@@ -1,0 +1,22 @@
+name: oasdiff PR comment
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Post oasdiff PR comment
+      uses: oasdiff/oasdiff-action/pr-comment@main
+      with:
+        base: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.base_ref }}/simple.yaml
+        revision: simple.yaml
+        oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
