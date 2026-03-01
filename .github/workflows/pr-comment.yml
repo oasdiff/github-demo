@@ -1,0 +1,30 @@
+name: oasdiff PR comment
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Get prev commit
+      run: echo "PREV_COMMIT=$(git --no-pager log --skip=1 --max-count=1 | grep commit | cut -d' ' -f2)" >> $GITHUB_ENV
+
+    - name: Get prev file
+      run: echo "PREV_FILE=$(echo https://raw.githubusercontent.com/oasdiff/github-demo/${{ env.PREV_COMMIT }}/simple.yaml)" >> $GITHUB_ENV
+
+    - name: Post oasdiff PR comment
+      uses: oasdiff/oasdiff-action/pr-comment@main
+      with:
+        base: ${{ env.PREV_FILE }}
+        revision: simple.yaml
+        oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
