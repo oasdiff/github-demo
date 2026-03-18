@@ -15,8 +15,9 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Post oasdiff PR comment
-      uses: oasdiff/oasdiff-action/pr-comment@main
+      uses: oasdiff/oasdiff-action/pr-comment@phase3-action-payload
       with:
         base: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.base_ref }}/simple.yaml
         revision: simple.yaml
         oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
+        service-url: https://oasdiff-service-test-806047195315.us-central1.run.app
