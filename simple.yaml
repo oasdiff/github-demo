@@ -9,7 +9,7 @@ components:
     groupId:
       in: query
       name: groupId
-      required: false
+      required: true
       schema:
         type: string
   schemas:
@@ -32,7 +32,6 @@ components:
               type: string
           required:
             - name
-            - id
 paths:
   /api/v1.0/groups:
     post:
