@@ -46,25 +46,10 @@ paths:
         description: Creates one project.
         required: true
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GroupView'
-          description: SUCCESS
+          description: Created
       summary: Create a Project
-  /api/v1.0/groups/{groupId}:
-    get:
-      tags:
-       - Group
-      operationId: getOneGroup
-      parameters:
-        - $ref: '#/components/parameters/groupId'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GroupView'
-          description: SUCCESS
-      summary: Get a Project
