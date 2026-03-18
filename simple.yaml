@@ -33,7 +33,7 @@ components:
           required:
             - name
 paths:
-  /api/v1.0/groups:
+  /api/v1.1/groups:
     post:
       tags:
        - Group
