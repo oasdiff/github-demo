@@ -23,7 +23,7 @@ components:
               type: string
               format: date-time
               readOnly: true
-              pattern: "^[a-z]+$"
+              pattern: "^[A-Z]+$"
             id:
               type: string
               readOnly: true
