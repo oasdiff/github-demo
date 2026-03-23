@@ -25,7 +25,7 @@ components:
               readOnly: true
               pattern: "^[A-Z]+$"
             id:
-              type: string
+              type: number
               readOnly: true
             name:
               type: string
