@@ -6,7 +6,7 @@ on:
       - 'simple.yaml'
 
 jobs:
-  pr-comment:
+  breaking-changes:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -15,5 +15,6 @@ jobs:
 
       - uses: oasdiff/oasdiff-action/breaking@v0.0.37
         with:
-          base: 'origin/${{ github.base_ref }}:openapi.yaml'
-          revision: 'HEAD:openapi.yaml'
+          base: 'origin/${{ github.base_ref }}:simple.yaml'  # replace with your spec path
+          revision: 'HEAD:simple.yaml'                          # replace with your spec path
+          fail-on: ERR
