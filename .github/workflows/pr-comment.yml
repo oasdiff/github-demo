@@ -1,23 +1,20 @@
-name: oasdiff PR comment
+name: API Breaking Change Check
 
 on:
   pull_request:
-
-permissions:
-  contents: read
-  pull-requests: write
-  statuses: write
+    paths:
+      - 'simple.yaml'
 
 jobs:
-  pr-comment:
+  breaking-changes:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-    - name: Post oasdiff PR comment
-      uses: oasdiff/oasdiff-action/pr-comment@v0.0.34
-      with:
-        base: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.base_ref }}/simple.yaml
-        revision: simple.yaml
-        oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
+      - run: git fetch --depth=1 origin ${{ github.base_ref }}
+
+      - uses: oasdiff/oasdiff-action/pr-comment@v0.0.37
+        with:
+          base: 'origin/${{ github.base_ref }}:simple.yaml'
+          revision: 'HEAD:simple.yaml'
+          oasdiff-token: ${{ secrets.OASDIFF_TOKEN }}
