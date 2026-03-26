@@ -5,6 +5,7 @@ on:
 
 permissions:
   pull-requests: write
+  statuses: write
 
 jobs:
   oasdiff:
@@ -14,8 +15,8 @@ jobs:
 
       - run: git fetch --depth=1 origin ${{ github.base_ref }}
 
-      - uses: oasdiff/oasdiff-action/pr-comment@v0.0.31
+      - uses: oasdiff/oasdiff-action/pr-comment@v0.0.37
         with:
-          base: 'origin/${{ github.base_ref }}:simple.yaml'
-          revision: 'HEAD:simple.yaml'
+          base: 'origin/${{ github.base_ref }}:openapi.yaml'
+          revision: 'HEAD:openapi.yaml'
           oasdiff-token: ${{ secrets.OASDIFF_TOKEN }}
