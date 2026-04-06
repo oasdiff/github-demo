@@ -12,19 +12,12 @@ jobs:
   pr-comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out base branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.base_ref }}
-          path: base
+      - uses: actions/checkout@v4
 
-      - name: Check out PR branch
-        uses: actions/checkout@v4
-        with:
-          path: revision
+      - run: git fetch --depth=1 origin ${{ github.base_ref }}
 
       - uses: oasdiff/oasdiff-action/pr-comment@v0.0.34
         with:
-          base: base/multi-file/openapi.yaml
-          revision: revision/multi-file/openapi.yaml
+          base: 'origin/${{ github.base_ref }}:multi-file/openapi.yaml'
+          revision: 'HEAD:multi-file/openapi.yaml'
           oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
