@@ -1,0 +1,23 @@
+name: oasdiff multi-file demo
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+  statuses: write
+
+jobs:
+  pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: git fetch --depth=1 origin ${{ github.base_ref }}
+
+      - uses: oasdiff/oasdiff-action/pr-comment@v0.0.34
+        with:
+          base: 'origin/${{ github.base_ref }}:multi-file/openapi.yaml'
+          revision: 'HEAD:multi-file/openapi.yaml'
+          oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
