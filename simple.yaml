@@ -23,14 +23,15 @@ components:
               type: string
               format: date-time
               readOnly: true
-              pattern: "^[a-z]+$"
+              pattern: "^[A-Z]+$"
             id:
-              type: string
+              type: number
               readOnly: true
             name:
               type: string
           required:
             - name
+            - id
 paths:
   /api/v1.0/groups:
     post:
@@ -46,6 +47,12 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupView'
+          description: SUCCESS
+        "201":
           content:
             application/json:
               schema:
