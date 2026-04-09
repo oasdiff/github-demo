@@ -15,9 +15,12 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v4
 
+    - name: Fetch base branch
+      run: git fetch --depth=1 origin ${{ github.base_ref }}
+
     - name: Post oasdiff PR comment
-      uses: oasdiff/oasdiff-action/pr-comment@v0.0.34
+      uses: oasdiff/oasdiff-action/pr-comment@v0.0.37
       with:
-        base: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.event.pull_request.base.sha }}/multi-file/openapi.yaml
-        revision: multi-file/openapi.yaml
-        oasdiff-token: 0634345d-02fb-43df-b56a-68fc22253621
+        base: 'origin/${{ github.base_ref }}:multi-file/openapi.yaml'
+        revision: 'HEAD:multi-file/openapi.yaml'
+        oasdiff-token: ${{ secrets.OASDIFF_TOKEN }}
