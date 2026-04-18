@@ -20,7 +20,7 @@ components:
           type: object
           properties:
             created:
-              type: string
+              type: integer
               format: date-time
               readOnly: true
               pattern: "^[a-z]+$"
@@ -29,8 +29,11 @@ components:
               readOnly: true
             name:
               type: string
+            status:
+              type: string
           required:
             - name
+            - status
 paths:
   /api/v1.0/groups:
     post:
