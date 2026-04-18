@@ -1,0 +1,12 @@
+name: detect-breaking-changes
+on:
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  oasdiff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: oasdiff/oasdiff-action/breaking@v0.0.40-beta.2
+        with:
+          base: 'specs/simple.yaml'
+          revision: 'specs/simple.yaml'
