@@ -29,8 +29,11 @@ components:
               readOnly: true
             name:
               type: string
+            email:
+              type: string
           required:
             - name
+            - email
 paths:
   /api/v1.0/groups:
     post:
