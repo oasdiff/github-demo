@@ -9,7 +9,7 @@ components:
     groupId:
       in: query
       name: groupId
-      required: true
+      required: false
       schema:
         type: string
   schemas:
@@ -29,9 +29,11 @@ components:
               readOnly: true
             name:
               type: string
+            email:
+              type: string
           required:
             - name
-            - id
+            - email
 paths:
   /api/v1.0/groups:
     post:
