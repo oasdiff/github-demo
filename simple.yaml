@@ -9,7 +9,7 @@ components:
     groupId:
       in: query
       name: groupId
-      required: false
+      required: true
       schema:
         type: string
   schemas:
