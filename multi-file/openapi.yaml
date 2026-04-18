@@ -20,7 +20,7 @@ paths:
       summary: Get a pet by ID
       parameters:
         - name: petId
-          in: path
+          in: query
           required: true
           schema:
             type: integer
