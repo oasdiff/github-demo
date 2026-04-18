@@ -21,7 +21,7 @@ paths:
       parameters:
         - name: petId
           in: path
-          required: true
+          required: false
           schema:
             type: integer
       responses:
