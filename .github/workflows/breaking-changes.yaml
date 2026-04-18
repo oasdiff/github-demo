@@ -14,3 +14,4 @@ jobs:
         with:
           base: 'origin/${{ github.base_ref }}:simple.yaml'
           revision: 'HEAD:simple.yaml'
+          fail-on: WARN
