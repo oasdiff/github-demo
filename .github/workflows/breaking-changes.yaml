@@ -8,5 +8,5 @@ jobs:
     steps:
       - uses: oasdiff/oasdiff-action/breaking@v0.0.40-beta.2
         with:
-          base: 'simple.yaml'
-          revision: 'simple.yaml'
+          base: './simple.yaml'
+          revision: './simple.yaml'
