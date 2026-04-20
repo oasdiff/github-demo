@@ -13,6 +13,6 @@ jobs:
 
       - uses: oasdiff/oasdiff-action/pr-comment@v0.0.40-beta.3
         with:
-          base: 'origin/${{ github.base_ref }}:openapi.yaml'
-          revision: 'HEAD:openapi.yaml'
+          base: 'origin/${{ github.base_ref }}:simple.yaml'
+          revision: 'HEAD:simple.yaml'
           oasdiff-token: ${{ secrets.OASDIFF_TOKEN }}
