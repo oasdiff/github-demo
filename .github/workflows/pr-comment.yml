@@ -1,26 +1,18 @@
-name: oasdiff PR comment
+name: oasdiff
 
 on:
   pull_request:
 
-permissions:
-  contents: read
-  pull-requests: write
-  statuses: write
-
 jobs:
-  pr-comment:
+  oasdiff:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-    - name: Fetch base branch
-      run: git fetch --depth=1 origin ${{ github.base_ref }}
+      - run: git fetch --depth=1 origin ${{ github.base_ref }}
 
-    - name: Post oasdiff PR comment
-      uses: oasdiff/oasdiff-action/pr-comment@v0.0.37
-      with:
-        base: 'origin/${{ github.base_ref }}:multi-file/openapi.yaml'
-        revision: 'HEAD:multi-file/openapi.yaml'
-        oasdiff-token: ${{ secrets.OASDIFF_TOKEN }}
+      - uses: oasdiff/oasdiff-action/pr-comment@v0.0.40-beta.3
+        with:
+          base: 'origin/${{ github.base_ref }}:openapi.yaml'
+          revision: 'HEAD:openapi.yaml'
+          oasdiff-token: ${{ secrets.OASDIFF_TOKEN }}
